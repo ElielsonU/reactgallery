@@ -4,8 +4,9 @@ class MainPage extends React.Component {
     render() {
         return (
         <React.Fragment>
-            <form action="">
-            <input type="file" name="" id="" />
+            <form method="post" action="http://localhost:8000/image">
+            <input type="file" name="img" id="img" />
+            <button type="submit">Submit</button>
             </form>
             <a href=""></a>
         </React.Fragment>
