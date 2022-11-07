@@ -1,32 +1,33 @@
-import express from "express"
-import multer from "multer"
-const app = express()
+import Express, { json, urlencoded } from "express";
+import fileUpload from "express-fileupload";
+import multer from "multer";
+import cors from "cors";
+import utf8 from "utf8";
+import bodyParser from "body-parser";
 
-app.use(express.json())
-app.use(express.urlencoded({ extended: true}))
 
-const treat = err => console.log(err)
+const app = Express()
+const upload = multer({dest: "/upload"}).single("file")
+const port = 8000
 
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(treat, "./uploads")
-    },
-    filename: (req, file, cb) => {
-        cb(treat, file.originalname)
-    }
+app.use(cors({ origin: "http://localhost:3000" ,optionsSuccessStatus: 200 }))
+
+// http://localhost:8000/
+app.get("/", (req, res) => {
+    res.send("Boa noite")
 })
-
-const upload = multer({storage: storage}).single("myfile")
-
-app.post("/image", (req, res) => {
-    upload(req, res, err => {
-        if (err){
-            res.end(err)
-        }
-        res.end(req.body.img)
-    })
+//  http://localhost:8000/imageUpload
+app.post("/imageUpload" ,fileUpload({createParentPath: true}) ,async (req, res) => {
+    if(req.files.img.size > 78643200){
+        res.send({"msg": "error!"})
+        return
+    } 
+    let image = req.files.img
+    let filename = utf8.decode(image.name)
+    image.mv(`upload/${filename}`)
+    res.send({"msg" : "Uploaded!"})
 })
-
-app.listen(8000, "localhost", () => {
-    console.log("BackEnd Server on port: 8000")
+// localhost:8000/
+app.listen(port, "localhost", () => {
+    console.log(`\nServer Running on port ${port}!\n`)
 })
