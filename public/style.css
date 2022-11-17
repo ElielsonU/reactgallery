@@ -1,0 +1,133 @@
+:root {
+    --c1: #41e3ff;
+    --c2: #03abc9;
+    --c3: #003842;
+    --c4: #ffffff;
+    --c5: #00182c;
+    height: 100%;
+}
+
+body {
+    background-color: var(--c3);
+    margin: 0px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    height: 100%;
+}
+
+#root {height: 100%;}
+
+header {
+    top: 0px;
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--c2);
+    padding: 5px 0px;
+    width: 100%;
+    position: absolute;
+}
+
+a {
+    color: var(--c4);
+    text-decoration: none;
+}
+
+a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+hr {
+    height: 28px;
+    margin: 0px;
+    border: 0px;
+}
+
+h1 {
+    text-align: center;
+    color: var(--c1);
+    text-shadow: 0px 0px 6px var(--c1);
+}
+
+p {
+    margin: 5px;
+    color: var(--c1);
+    font-size: 105%;
+    display: inline-block;
+    line-height: 150%;
+}
+
+strong {
+    font-size: 103%;
+    display: inline-block;
+    margin: 0px;
+    line-height: 110%;
+}
+
+.reactLogo {
+    height: 30px;
+    width: 30px;
+    vertical-align: text-bottom;
+    filter: drop-shadow(1px 1px 3px var(--c1));
+}
+
+.actualPage {
+    font-size: small;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    word-wrap: break-word;
+    border: solid 2px var(--c4);
+    border-radius: 10px;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    padding: 3px;
+    color: var(--c2);
+    margin: 0% 15%;
+    background-color: var(--c5);
+}
+
+section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 15px 0px;
+}
+
+.galleryImages{
+    width: 30%;
+    height: 40%;
+    gap: 30px;
+    border: solid 2px var(--c2);
+    border-radius: 12px;
+}
+
+.resetIcon {
+    width: 20px;
+    vertical-align: baseline;
+}
+
+input {
+    align-self: center;
+    padding: 0px;
+    color: var(--c5);
+}
+
+input::-webkit-file-upload-button {
+    background-color: var(--c1);
+    border-radius: 30px;
+    align-self: center;
+    position: absolute;
+    margin-left: 80px;
+}
+
+input::-webkit-file-upload-button:hover {border-color: var(--c2);}
+
+button {
+    border-radius: 30px;
+    border-color: var(--c2);
+    background-color: var(--c1);
+    margin: 2px;
+}
