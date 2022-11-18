@@ -29,11 +29,7 @@ function updateGallery(byDate=false) {
             return
         }
         if (byDate) { return images = files.reverse() }
-        for(let i = 0; i < 9; i++){
-            const genIndex = indexGenerator()
-            choicedIndex.push(genIndex)
-            images.push(files[genIndex])
-        }
+        images = files
     })
 }
 updateGallery( {byDate: true} )
@@ -65,6 +61,7 @@ app.post("/imageUpload" ,fileUpload({createParentPath: true}) ,async (req, res) 
     filename = `${getDate()}.${purefilename[1]}`
     
     image.mv(`upload/${filename}`)
+    updateGallery( {byDate: true} )
     res.send({"msg" : "Uploaded!"})
 })
 

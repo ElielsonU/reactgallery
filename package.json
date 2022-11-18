@@ -21,7 +21,7 @@
   },
   "scripts": {
     "nodemon": "nodemon server",
-    "start": "react-scripts start",
+    "start": "start /min cmd /c react-scripts start && start /min cmd /c npm run nodemon",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

@@ -1,1 +1,0 @@
-import shell from "shelljs";shell.exec("start /min cmd /c npm start && start /min cmd /c npm run nodemon")

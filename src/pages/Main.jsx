@@ -4,6 +4,9 @@ import HomePage from "./alterPages/HomePage";
 import Gallery from "./alterPages/Gallery"
 
 function Main() {
+    fetch("http://localhost:8000/updateGallery")
+        .then(res => res.json())
+        .catch(err => console.log(err))
     const [selectedPage, setSelectedPage ] = useState(<HomePage/>)
     const catchSelectedPage = e => {
         if(e.target.id === "Home"){setSelectedPage(<HomePage/>)}
